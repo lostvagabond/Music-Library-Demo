@@ -4,7 +4,6 @@ class library:
         self.dict = dict
 
     def showMusic(self):
-
         for i in self.dict:
             print(f"{i}:\n")
             for c in self.dict[i]:
@@ -15,39 +14,15 @@ class library:
             print(" ")
 
     def addSong(self, artist, song):
-
-        if artist.__contains__(" "):
-            artist = artist.split(" ")
-            artist = (x.capitalize() for x in artist)
-            artist = " ".join(artist)
-        else:
-            artist = artist.capitalize()
+        artist = artist.title()
 
         if artist.endswith(" ") or artist.startswith(" "):
             artist = artist.strip(" ")
 
-        if song.__contains__(" "):
-            song = song.split(" ")
-            song = (x.capitalize() for x in song)
-            song = " ".join(song)
-        else:
-            song = song.capitalize()
+        song = song.title()
 
         if song.endswith(" ") or song.startswith(" "):
             song = song.strip(" ")
-
-        if song.__contains__(","):
-            song = song.split(",")
-            song = (x.capitalize() for x in song)
-            song = ",".join(song)
-
-        if song.__contains__("."):
-            song = song.split(".")
-            for x in song:
-                if not x[0].isupper():
-                    x = x.capitalize()
-                #song = (x.capitalize() for x in song)
-            song = ".".join(song)
 
         if artist not in self.dict:
             print(f"{artist} Is Not In Database")
@@ -67,13 +42,7 @@ class library:
             print("Song Added")
 
     def addArtist(self,artist):
-
-        if artist.__contains__(" "):
-            artist = artist.split(" ")
-            artist = (x.capitalize() for x in artist)
-            artist = " ".join(artist)
-        else:
-            artist = artist.capitalize()
+        artist = artist.title()
 
         if artist.endswith(" ") or artist.startswith(" "):
             artist = artist.strip(" ")
@@ -95,25 +64,15 @@ class library:
 
     def deleteSong(self,artist,song):
 
-        if artist.__contains__(" "):
-            artist = artist.split(" ")
-            artist = (x.capitalize() for x in artist)
-            artist = " ".join(artist)
-        else:
-            artist = artist.capitalize()
+        artist = artist.title()
 
         if artist.endswith(" ") or artist.startswith(" "):
             artist = artist.strip(" ")
 
-        if song.__contains__(" "):
-            song = song.split(" ")
-            song = (x.capitalize() for x in song)
-            song = " ".join(song)
-        else:
-            song = song.capitalize()
+        song = song.title()
 
         if song.endswith(" ") or song.startswith(" "):
-            song = song.split(" ")
+            song = song.strip(" ")
 
         if artist not in self.dict:
             print(f"{artist} Not In Database")
@@ -136,13 +95,7 @@ class library:
 
 
     def deleteArtist(self,artist):
-
-        if artist.__contains__(" "):
-            artist = artist.split(" ")
-            artist = (x.capitalize() for x in artist)
-            artist = " ".join(artist)
-        else:
-            artist = artist.capitalize()
+        artist = artist.title()
 
         if artist.endswith(" ") or artist.startswith(" "):
             artist = artist.strip(" ")
